@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="ru">
+    <meta name="Description" content="Главная страница о возможностях поиска Яндекса">
+    <meta name="Keywords" content="Яндекс, поиск, расширенный поиск, индекс цитирования">
+    <meta name="Author" content="Иванов Иван">
+    
+    <!-- Автообновление каждую минуту -->
+    <meta http-equiv="refresh" content="60">
+    
+    <!-- Ссылки на другие страницы через LINK -->
+    <link rel="alternate" href="page1.html" title="Страница с метками">
+    <link rel="alternate" href="redirect.html" title="Страница перенаправления">
+    
+    <title>Главная страница</title>
+    
+    <style>
+        nav {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Главная страница</h1>
+    <p>Эта страница автоматически обновляется каждую минуту.</p>
+    
+    <!-- Навигационное меню -->
+    <nav>
+        <a href="page1.html">Страница с метками</a>
+        <a href="red.html">Страница перенаправления</a>
+    </nav>
+    
+    <!-- Проверка работы ссылок -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Проверяем существование файла red.html
+            fetch('red.html')
+                .then(response => {
+                    if (!response.ok) {
+                        console.error('Файл redt.html не найден!');
+                        const nav = document.querySelector('nav');
+                        if (nav) {
+                            nav.innerHTML += '<p style="color:red">Ошибка: файл red.html не найден в этой папке</p>';
+                        }
+                    }
+                })
+                .catch(error => console.error('Ошибка:', error));
+        });
+    </script>
+    
+    <!-- Комментарии о мета-данных -->
+    <!-- 
+        Мета-теги:
+        - Content-Language: указывает язык содержимого (ru - русский)
+        - Description: краткое описание страницы для поисковиков
+        - Keywords: ключевые слова для SEO
+        - Author: информация об авторе
+        - refresh: автообновление страницы (60 секунд)
+        
+        Тег LINK:
+        - alternate: альтернативные версии/страницы сайта
+    -->
+</body>
+</html>

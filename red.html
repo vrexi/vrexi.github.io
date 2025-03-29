@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="ru">
+    <meta name="Description" content="Страница перенаправления">
+    <meta name="Keywords" content="редирект, перенаправление">
+    <meta name="Author" content="Иванов Иван">
+    
+    <!-- Перенаправление через 10 секунд -->
+    <meta http-equiv="refresh" content="10; url=https://asu-edu.ru/">
+    
+    <!-- Ссылки на другие страницы -->
+    <link rel="start" href="index.html" title="Главная страница">
+    <link rel="alternate" href="page1.html" title="Страница с метками">
+    
+    <title>Перенаправление на АГУ</title>
+    
+    <style>
+        .redirect-message {
+            margin: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .manual-redirect {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+    
+    <script>
+        // Ручное перенаправление при клике
+        function manualRedirect() {
+            window.location.href = "https://asu-edu.ru/";
+        }
+        
+        // Обратный отсчет
+        let seconds = 10;
+        function updateCounter() {
+            document.getElementById('countdown').textContent = seconds;
+            seconds--;
+            if (seconds >= 0) {
+                setTimeout(updateCounter, 1000);
+            }
+        }
+        window.onload = updateCounter;
+    </script>
+</head>
+<body>
+    <div class="redirect-message">
+        <h1>Перенаправление на сайт АГУ</h1>
+        <p>Вы будете автоматически перенаправлены через <span id="countdown">10</span> секунд.</p>
+        <p>Если перенаправление не сработало, нажмите 
+            <span class="manual-redirect" onclick="manualRedirect()">здесь</span>.
+        </p>
+    </div>
+    
+    <!-- Навигация -->
+    <nav>
+        <a href="index.html">На главную</a> |
+        <a href="page1.html">Страница с метками</a>
+    </nav>
+</body>
+</html>
